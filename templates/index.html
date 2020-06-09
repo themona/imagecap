@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Captioning</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style >
+	.heading{
+		font-weight: 100;
+		font-size: 4em;
+		text-shadow: 1px 1px 5px black;}
+
+	.text{
+		font-size: 32px;
+		font-style: italic;
+	}
+
+	img{
+
+		height: 90%;
+		width: 100%;
+	}
+
+	body {
+        background-color: #ffdead;
+      }
+
+</style>
+</head>
+<body >
+
+		
+
+		<div class="container">
+			
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="heading">Image Captioning</h1>
+					<p>Upload your image to generate caption...</p>
+				</div>
+			</div>
+
+				<form class="form-inline" method="POST" action="/" enctype="multipart/form-data">
+					
+					<label><b>Image: &nbsp;&nbsp;</b></label>
+					<input class="form-control" type="file" name="userfile" placeholder="your image">
+					<button type="submit" class="btn btn-primary">submit</button>
+				
+				</form>
+
+				<br>
+				<br>
+				{% if results %}
+
+				<div class="row">
+					<div class="col-sm-4">
+						<img src="{{results['image']}}">
+					</div>
+					<div class="col-sm-8">
+						<p class="text">Generated Caption : </p>
+						<p><b>{{results['gen_caption']}}</b></p>
+				
+					</div>
+				</div>
+				{% endif %}
+
+		</div>
+</body>
+</html>
